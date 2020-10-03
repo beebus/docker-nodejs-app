@@ -10,7 +10,7 @@
 })(window, function(__WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__6__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = {};
+/******/ 	let installedModules = {};
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -20,7 +20,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 			return installedModules[moduleId].exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
+/******/ 		let module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
@@ -67,10 +67,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		if(mode & 1) value = __webpack_require__(value);
 /******/ 		if(mode & 8) return value;
 /******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
+/******/ 		let ns = Object.create(null);
 /******/ 		__webpack_require__.r(ns);
 /******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		if(mode & 2 && typeof value != 'string') for(let key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
 /******/ 		return ns;
 /******/ 	};
 /******/
@@ -120,7 +120,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+let __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   Copyright (c) 2017 Jed Watson.
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
@@ -130,26 +130,26 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 (function () {
   'use strict';
 
-  var hasOwn = {}.hasOwnProperty;
+  let hasOwn = {}.hasOwnProperty;
 
   function classNames() {
-    var classes = [];
+    let classes = [];
 
-    for (var i = 0; i < arguments.length; i++) {
-      var arg = arguments[i];
+    for (let i = 0; i < arguments.length; i++) {
+      let arg = arguments[i];
       if (!arg) continue;
-      var argType = typeof arg;
+      const argType = typeof arg;
 
       if (argType === 'string' || argType === 'number') {
         classes.push(arg);
       } else if (Array.isArray(arg) && arg.length) {
-        var inner = classNames.apply(null, arg);
+        let inner = classNames.apply(null, arg);
 
         if (inner) {
           classes.push(inner);
         }
       } else if (argType === 'object') {
-        for (var key in arg) {
+        for (let key in arg) {
           if (hasOwn.call(arg, key) && arg[key]) {
             classes.push(key);
           }
@@ -160,7 +160,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
     return classes.join(' ');
   }
 
-  if ( true && module.exports) {
+  if ( module.exports) {
     classNames.default = classNames;
     module.exports = classNames;
   } else if (true) {
@@ -235,22 +235,22 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__6__;
 exports.__esModule = true;
 exports.default = uncontrollable;
 
-var _react = _interopRequireDefault(__webpack_require__(1));
+let _react = _interopRequireDefault(__webpack_require__(1));
 
-var _invariant = _interopRequireDefault(__webpack_require__(24));
+let _invariant = _interopRequireDefault(__webpack_require__(24));
 
-var Utils = _interopRequireWildcard(__webpack_require__(39));
+let Utils = _interopRequireWildcard(__webpack_require__(39));
 
 function _interopRequireWildcard(obj) {
   if (obj && obj.__esModule) {
     return obj;
   } else {
-    var newObj = {};
+    let newObj = {};
 
     if (obj != null) {
-      for (var key in obj) {
+      for (let key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {
-          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+          let desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
 
           if (desc.get || desc.set) {
             Object.defineProperty(newObj, key, desc);
@@ -274,10 +274,10 @@ function _interopRequireDefault(obj) {
 
 function _extends() {
   _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+    for (let i = 1; i < arguments.length; i++) {
+      let source = arguments[i];
 
-      for (var key in source) {
+      for (let key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
@@ -292,9 +292,9 @@ function _extends() {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
+  let target = {};
+  let sourceKeys = Object.keys(source);
+  let key, i;
 
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
@@ -316,36 +316,36 @@ function uncontrollable(Component, controlledValues, methods) {
     methods = [];
   }
 
-  var displayName = Component.displayName || Component.name || 'Component';
-  var canAcceptRef = Utils.canAcceptRef(Component);
-  var controlledProps = Object.keys(controlledValues);
-  var PROPS_TO_OMIT = controlledProps.map(Utils.defaultKey);
+  let displayName = Component.displayName || Component.name || 'Component';
+  let canAcceptRef = Utils.canAcceptRef(Component);
+  let controlledProps = Object.keys(controlledValues);
+  let PROPS_TO_OMIT = controlledProps.map(Utils.defaultKey);
   !(canAcceptRef || !methods.length) ?  false ? undefined : invariant(false) : void 0;
 
-  var UncontrolledComponent =
+  let UncontrolledComponent =
   /*#__PURE__*/
   function (_React$Component) {
     _inheritsLoose(UncontrolledComponent, _React$Component);
 
     function UncontrolledComponent() {
-      var _this;
+      let _this;
 
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      for (let _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
 
       _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
       _this.handlers = Object.create(null);
       controlledProps.forEach(function (propName) {
-        var handlerName = controlledValues[propName];
+        let handlerName = controlledValues[propName];
 
-        var handleChange = function handleChange(value) {
+        let handleChange = function handleChange(value) {
           if (_this.props[handlerName]) {
-            var _this$props;
+            let _this$props;
 
             _this._notifying = true;
 
-            for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+            for (let _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
               args[_key2 - 1] = arguments[_key2];
             }
 
@@ -366,7 +366,7 @@ function uncontrollable(Component, controlledValues, methods) {
       return _this;
     }
 
-    var _proto = UncontrolledComponent.prototype;
+    let _proto = UncontrolledComponent.prototype;
 
     _proto.shouldComponentUpdate = function shouldComponentUpdate() {
       //let the forceUpdate trigger the update
@@ -374,9 +374,9 @@ function uncontrollable(Component, controlledValues, methods) {
     };
 
     _proto.componentWillMount = function componentWillMount() {
-      var _this2 = this;
+      let _this2 = this;
 
-      var props = this.props;
+      let props = this.props;
       this._values = Object.create(null);
       controlledProps.forEach(function (key) {
         _this2._values[key] = props[Utils.defaultKey(key)];
@@ -384,9 +384,9 @@ function uncontrollable(Component, controlledValues, methods) {
     };
 
     _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-      var _this3 = this;
+      let _this3 = this;
 
-      var props = this.props;
+      let props = this.props;
       controlledProps.forEach(function (key) {
         /**
          * If a prop switches from controlled to Uncontrolled

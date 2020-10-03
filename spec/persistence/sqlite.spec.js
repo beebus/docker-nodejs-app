@@ -1,3 +1,5 @@
+import { test } from 'jest-snapshot';
+
 const db = require('../../src/persistence/sqlite');
 const fs = require('fs');
 

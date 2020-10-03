@@ -1,5 +1,8 @@
+import { test } from 'jest-snapshot';
+
 const db = require('../../src/persistence');
 const deleteItem = require('../../src/routes/deleteItem');
+const jest = require('jest');
 const ITEM = { id: 12345 };
 
 jest.mock('../../src/persistence', () => ({
