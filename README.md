@@ -14,7 +14,7 @@ A simple to-do-list app that utilizes Docker, Node.js, and React.js.
 
 3. **Run the container:**
    ```sh
-   docker run -p 3000:3000 docker-nodejs-app
+   docker run --rm -p 3000:3000 docker-nodejs-app
    ```
 
 4. **Open the app** in your browser: [http://localhost:3000](http://localhost:3000)
