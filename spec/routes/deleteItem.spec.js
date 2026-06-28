@@ -1,8 +1,5 @@
-import { test } from 'jest-snapshot';
-
 const db = require('../../src/persistence');
 const deleteItem = require('../../src/routes/deleteItem');
-const jest = require('jest');
 const ITEM = { id: 12345 };
 
 jest.mock('../../src/persistence', () => ({
@@ -11,7 +8,7 @@ jest.mock('../../src/persistence', () => ({
 }));
 
 test('it removes item correctly', async () => {
-    const req = { params: { id: 12345 } };
+    const req = { params: ITEM };
     const res = { sendStatus: jest.fn() };
 
     await deleteItem(req, res);

@@ -1,7 +1,11 @@
-import { test } from 'jest-snapshot';
+const path = require('path');
+const os = require('os');
+
+process.env.SQLITE_DB_LOCATION = path.join(os.tmpdir(), 'test-todo.db');
 
 const db = require('../../src/persistence/sqlite');
 const fs = require('fs');
+const location = process.env.SQLITE_DB_LOCATION;
 
 const ITEM = {
     id: '7aef3d7c-d301-4846-8358-2a91ec9d6be3',
@@ -9,9 +13,10 @@ const ITEM = {
     completed: false,
 };
 
-beforeEach(() => {
-    if (fs.existsSync('/etc/todos/todo.db')) {
-        fs.unlinkSync('/etc/todos/todo.db');
+beforeEach(async () => {
+    try { await db.teardown(); } catch (e) {}
+    if (fs.existsSync(location)) {
+        fs.unlinkSync(location);
     }
 });
 
